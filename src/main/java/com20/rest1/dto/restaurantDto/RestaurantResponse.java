@@ -8,7 +8,6 @@ public record RestaurantResponse(
         Long id,
         String name,
         String location,
-        RestType restType,
         int numberOfEmployees,
         int service
 ) {
@@ -17,7 +16,6 @@ public record RestaurantResponse(
                 .id(restaurant.getId())
                 .name(restaurant.getName())
                 .location(restaurant.getLocation())
-                .restType(restaurant.getRestType())
                 .numberOfEmployees(restaurant.getNumberOfEmployees())
                 .service(restaurant.getService())
                 .build();
