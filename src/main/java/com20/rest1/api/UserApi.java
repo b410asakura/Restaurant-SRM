@@ -2,6 +2,7 @@ package com20.rest1.api;
 
 import com20.rest1.dto.userDto.UserResponse;
 import com20.rest1.service.UserService;
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.annotation.security.PermitAll;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.annotation.Secured;
@@ -23,28 +24,32 @@ public class UserApi {
 
     private final UserService userService;
 
-    @PermitAll
-    @GetMapping
+    @GetMapping("getAll")
+    @Operation(summary = "to get all users")
     List<UserResponse> getAll() {
         return userService.getAll();
     }
 
-    @GetMapping("/")
+    @GetMapping("/getById")
+    @Operation(summary = "to get user by id")
     UserResponse getById(@RequestParam Long id) {
         return userService.getById(id);
     }
 
     @PostMapping
+    @Operation(summary = "to save new user")
     SimpleResponse save(@RequestBody UserRequest userRequest) {
         return userService.save(userRequest);
     }
 
-    @DeleteMapping("/")
+    @DeleteMapping()
+    @Operation(summary = "to delete a user")
     SimpleResponse delete(@RequestParam Long id) {
         return userService.delete(id);
     }
 
     @PutMapping("")
+    @Operation(summary = "to update a user")
     SimpleResponse updateMap(@RequestParam Long id,
                              @RequestBody UserRequest userRequest, Principal principal) {
         System.out.println("principal.getName() = " + principal.getName());

@@ -8,8 +8,7 @@ public record RestaurantResponse(
         Long id,
         String name,
         String location,
-        int numberOfEmployees,
-        int service
+        int numberOfEmployees
 ) {
     public static RestaurantResponse entityToResponse(Restaurant restaurant) {
         return RestaurantResponse.builder()
@@ -17,7 +16,6 @@ public record RestaurantResponse(
                 .name(restaurant.getName())
                 .location(restaurant.getLocation())
                 .numberOfEmployees(restaurant.getNumberOfEmployees())
-                .service(restaurant.getService())
                 .build();
 
     }

@@ -38,6 +38,13 @@ public class UserServiceImpl implements UserService {
     public SimpleResponse save(UserRequest userRequest) {
         User user = userRequest.requestToEntity();
         user.setPassword(passwordEncoder.encode(userRequest.password()));
+        if(user.getRole().toString().equals("ADMIN")) {
+            return SimpleResponse.builder()
+                    .httpStatus(HttpStatus.BAD_REQUEST)
+                    .message("ADMIN can not save other admin")
+                    .note("choose another role: {'WAITER', 'SHEF', 'COOK'}")
+                    .build();
+        }
         userRepository.save(user);
         return SimpleResponse.builder()
                 .httpStatus(HttpStatus.OK)
@@ -59,6 +66,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public SimpleResponse delete(Long id) {
+        User user = userRepository.findById(id).orElseThrow(
+                () -> new NotFoundException("User not found with id " + id)
+        );
         userRepository.deleteById(id);
         return SimpleResponse.builder()
                 .httpStatus(HttpStatus.OK)

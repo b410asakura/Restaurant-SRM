@@ -20,11 +20,8 @@ public class Restaurant {
     private String name;
     private String location;
     private int numberOfEmployees;
-    private int service;
     @OneToMany(mappedBy = "restaurant")
     private List<User> users;
     @OneToMany(mappedBy = "restaurant")
     private List<Menu> menus;
-
-
 }

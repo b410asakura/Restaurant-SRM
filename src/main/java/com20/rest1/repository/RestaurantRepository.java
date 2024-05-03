@@ -15,9 +15,7 @@ public interface RestaurantRepository extends JpaRepository<Restaurant, Long> {
             r.id,
             r.name,
             r.location,
-            r.restType,
-            r.numberOfEmployees,
-            r.service)
+            r.numberOfEmployees)
             from Restaurant r
             """)
     List<RestaurantResponse> getAll();

@@ -24,12 +24,12 @@ public class User implements UserDetails {
     @Column(name = "id", nullable = false)
     private Long id;
     private String firstName;
-    private String  lastName;
+    private String lastName;
     private LocalDate dateOfBirth;
     private String email;
     private String password;
     private String phoneNumber;
-        @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.STRING)
     private Role role;
     private int experience;
     @OneToMany(mappedBy = "user")
