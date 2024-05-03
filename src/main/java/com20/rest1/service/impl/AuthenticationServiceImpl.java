@@ -4,7 +4,6 @@ import com20.rest1.config.jwtConfig.JwtService;
 import com20.rest1.dto.authenticationDto.AuthenticationResponse;
 import com20.rest1.dto.authenticationDto.SignInRequest;
 import com20.rest1.dto.authenticationDto.SignUpRequest;
-import com20.rest1.dto.authenticationDto.UserResponse;
 import com20.rest1.entity.User;
 import com20.rest1.enums.Role;
 import com20.rest1.globalException.AlreadyExistsException;
@@ -20,7 +19,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.webjars.NotFoundException;
 
-import java.util.List;
 @RequiredArgsConstructor
 @Service
 @Builder
@@ -43,10 +41,10 @@ public class AuthenticationServiceImpl implements AuthenticationService {
                 .lastName(signUpRequest.getLastName())
                 .email(signUpRequest.getEmail())
                 .password(passwordEncoder.encode(signUpRequest.getPassword()))
-                .role(Role.USER)
+                .role(Role.ADMIN)
                 .build();
         userRepository.save(user);
-        log.info("User saved");
+        log.info("ADMIN saved");
         String token = jwtService.generateToken(user);
         log.info("user token generated");
         return AuthenticationResponse.builder()
@@ -83,11 +81,6 @@ public class AuthenticationServiceImpl implements AuthenticationService {
                 .email(user.getEmail())
                 .role(user.getRole())
                 .build();
-    }
-
-    @Override
-    public List<UserResponse> getAllUsers() {
-        return userDao.getAll();
     }
 
     @PostConstruct

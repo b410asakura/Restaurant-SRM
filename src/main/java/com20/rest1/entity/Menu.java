@@ -26,10 +26,6 @@ public class Menu {
     @ManyToMany(mappedBy = "menus")
     private List<Check> checks;
     @ManyToOne
-    private Subcategory subcategory;
-    @OneToOne
-    private StopList stopList;
-    @ManyToOne
     private Restaurant restaurant;
 
 }

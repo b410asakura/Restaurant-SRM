@@ -1,6 +1,5 @@
 package com20.rest1.entity;
 
-import com20.rest1.enums.RestType;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -20,7 +19,6 @@ public class Restaurant {
     private Long id;
     private String name;
     private String location;
-    private RestType restType;
     private int numberOfEmployees;
     private int service;
     @OneToMany(mappedBy = "restaurant")

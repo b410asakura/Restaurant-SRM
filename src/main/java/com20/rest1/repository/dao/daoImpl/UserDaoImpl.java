@@ -1,6 +1,6 @@
 package com20.rest1.repository.dao.daoImpl;
 
-import com20.rest1.dto.authenticationDto.UserResponse;
+import com20.rest1.dto.userDto.UserResponse;
 import com20.rest1.enums.Role;
 import com20.rest1.repository.dao.UserDao;
 import lombok.RequiredArgsConstructor;
@@ -13,21 +13,4 @@ import java.util.List;
 public class UserDaoImpl implements UserDao {
     private final JdbcTemplate jdbcTemplate;
 
-    @Override
-    public List<UserResponse> getAll() {
-        String sql = """
-                select u.id, u.first_name, u.last_name, u.email, u.password, u.role
-                           from users u
-                """;
-        return jdbcTemplate.query(sql,( (rs, rowNum) -> {
-            UserResponse user = new UserResponse();
-            user.setId(rs.getLong("id"));
-            user.setFirstName(rs.getString("first_name"));
-            user.setLastName(rs.getString("last_name"));
-            user.setEmail(rs.getString("email"));
-            user.setPassword(rs.getString("password"));
-            user.setRole(Role.valueOf(rs.getString("role")));
-            return user;
-        }));
-    }
 }

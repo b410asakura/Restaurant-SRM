@@ -18,8 +18,6 @@ public class Category {
     @Column(name = "id", nullable = false)
     private Long id;
     String name;
-    @OneToMany(mappedBy = "category")
-    private List<Subcategory> subcategories;
 
     public Category(String name) {
         this.name = name;

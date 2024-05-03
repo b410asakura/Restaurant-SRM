@@ -62,7 +62,7 @@ public class JwtFilter extends OncePerRequestFilter {
                                     )
                             );
                 } catch (JWTVerificationException e) {
-                    response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Invalid toke");
+                    response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Invalid token");
                 }
             }
         }

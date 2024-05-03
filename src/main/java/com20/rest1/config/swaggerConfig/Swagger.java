@@ -19,7 +19,7 @@ public class Swagger {
         return new OpenAPI()
                 .components(new Components()
                         .addSecuritySchemes(API_KEY, apiKeySecurityScheme()))
-                .info(new Info().title("Restaurent SRM"))
+                .info(new Info().title("Restaurant SRM"))
                 .security(Collections.singletonList(new SecurityRequirement().addList(API_KEY)));
     }
 

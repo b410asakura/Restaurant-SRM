@@ -3,7 +3,6 @@ package com20.rest1.api;
 import com20.rest1.dto.authenticationDto.AuthenticationResponse;
 import com20.rest1.dto.authenticationDto.SignInRequest;
 import com20.rest1.dto.authenticationDto.SignUpRequest;
-import com20.rest1.dto.authenticationDto.UserResponse;
 import com20.rest1.service.AuthenticationService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -30,11 +29,5 @@ public class AuthenticationApi {
     @Operation(summary = "for sign in click here")
     public AuthenticationResponse signIn(@RequestBody SignInRequest signInRequest) {
         return authenticationService.signIn(signInRequest);
-    }
-
-    @GetMapping("/showAllUser")
-    @Operation(summary = "to show all users")
-    public List<UserResponse> getAllUsers() {
-        return authenticationService.getAllUsers();
     }
 }
