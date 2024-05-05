@@ -1,9 +1,22 @@
-# SRM System for restaurant bysiness
-Our Supplier Relationship Management (SRM) system for restaurants provides functionality for order checks, menu creation with categories, and staff hiring. Optimize procurement processes, manage menus, and enhance the efficiency of your restaurant operations with our solution
+# Restaurant Supplier Relationship Management (SRM) System
+
+Welcome to the Restaurant Supplier Relationship Management (SRM) System! This project aims to design and implement a comprehensive SRM system tailored for restaurants. The system facilitates efficient procurement processes, supplier management, and inventory control, enhancing the overall efficiency and performance of restaurant operations.
 
 ## Project Overview
 
 This project aims to design and implement a comprehensive Supplier Relationship Management (SRM) system for optimizing procurement processes, managing supplier relationships, and streamlining operations within the restaurant industry. The system will facilitate efficient order processing, vendor management, and inventory control, enhancing the overall efficiency and performance of restaurant operations.
+
+## Features
+
+- **Order Processing**: Efficiently manage orders from suppliers, including placing orders, tracking deliveries, and managing invoices.
+  
+- **Supplier Management**: Maintain a database of suppliers, track supplier performance, and manage relationships to ensure quality and reliability of deliveries.
+  
+- **Inventory Control**: Monitor inventory levels, track stock movements, and optimize inventory management to prevent stockouts and reduce excess inventory.
+  
+- **Menu Creation**: Streamline menu creation by integrating with the inventory system to automatically update menu items based on ingredient availability.
+  
+- **Staff Hiring**: Facilitate staff hiring processes, including posting job openings, managing applications, and scheduling interviews.
 
 ## Technologies Used
 
